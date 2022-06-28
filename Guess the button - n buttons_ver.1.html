@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <body style = "text-align:center;">
+  </head>
+  <body>
+    
+    <p id = "My_Style" style = "color:blueviolet; font-size: 40px; font-weight: bold;"></p>
+    
+<div id="MyButtons">
+
+</div>
+
+  <script>
+    
+    let n=parseInt(prompt("Hello, please choose a number!",0));
+    document.getElementById("My_Style").innerHTML = ("Please choose a button and press it!");
+    let u = Math.floor((Math.random() * n) + 1);
+    let ourButtons = document.getElementById("MyButtons");
+    for (let b=1; b<=n;b++) {
+      let button = document.createElement("button");
+      button.setAttribute("number", b);
+      button.innerHTML="Button no. " + b;
+      ourButtons.appendChild(button);
+      
+      button.addEventListener("click", function(event) {
+        let btn = event.target;
+        let t = btn.getAttribute("number");
+        if (u == t) {
+            document.getElementById("My_Style").innerHTML = "Congratulations, you chose the winning button!";
+          } else {
+            document.getElementById("My_Style").innerHTML = "You didn't choose the winning button!";
+          }
+        });
+     }
+
+    </script>
+  </body>
+</html>
