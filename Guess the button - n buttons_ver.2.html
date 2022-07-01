@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang = "en">
+  <body style = "text-align:center;">
+  <p id = "My_Style" style = "color:blueviolet; font-size: 40px; font-weight: bold;"></p>
+  <div id = "MyButtons"></div>
+
+  <script>
+    let n = parseInt(prompt("Hello, please choose a number!",0));
+    document.getElementById("My_Style").innerHTML = ("Please choose a button and press it!");
+    let u = Math.floor((Math.random() * n) + 1);
+    for (let i = 1; i <= n; ++i) {
+      let button = document.createElement("button");
+      button.setAttribute("number", i);
+      button.innerHTML = "Button no. " + i;
+      document.getElementById("MyButtons").appendChild(button);
+      
+      button.addEventListener("click", function(event) {
+        if (u == event.target.getAttribute("number")) {
+            document.getElementById("My_Style").innerHTML = "Congratulations, you chose the winning button!";
+        } else {
+            document.getElementById("My_Style").innerHTML = "You didn't choose the winning button!";
+        }
+      });
+    }
+  </script>
+</html>
